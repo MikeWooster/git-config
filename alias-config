@@ -8,4 +8,4 @@ clean-merged = "!git branch --merged master | grep -v \"^  master$\" | grep -v \
 reset-deviated = "!git reset origin/$(git branch-name)  --hard"
 
 # Alias to log on one line
-l1 = "!git log --oneline"
+l1 = "!git log origin/master.. --oneline"
