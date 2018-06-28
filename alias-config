@@ -7,5 +7,8 @@ clean-merged = "!git branch --merged master | grep -v \"^  master$\" | grep -v \
 # Resets all changes in a local branch to match the remote
 reset-deviated = "!git reset origin/$(git branch-name)  --hard"
 
-# Alias to log on one line
+# Logs commits since master on one line
 l1 = "!git log origin/master.. --oneline"
+
+# Counts number of commits since master
+lc = "!git l1 | wc -l"
