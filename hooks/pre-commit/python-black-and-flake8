@@ -1,0 +1,22 @@
+#!/bin/bash
+
+echo "running lint tests..."
+GIT_ROOT=$(git rev-parse --show-toplevel)
+echo $GIT_ROOT
+
+black --check --py36 --line-length 120 $GIT_ROOT/<sub-directory>
+exitstatus=$?
+if [[ $exitstatus != 0 ]]; then
+  black --py36 --line-length 120 $GIT_ROOT/<sub-directory>
+  echo "Your code has been automatically BLACKED!!!  This means it has not been successfully committed.  Please add blacked files and commit again."
+  exit 1
+fi
+
+flake8 $GIT_ROOT/<sub-directory>
+exitstatus=$?
+if [[ $exitstatus != 0 ]]; then
+  echo "linting tests failed!!!"
+  exit 1
+fi
+exit 0
+
