@@ -1,0 +1,43 @@
+[user]
+# Uncomment and add username
+#    name = 
+#    email = 
+
+[core]
+    editor = vim
+    excludesfile = /Users/mike/.gitignore_global
+    
+[credential]
+    helper = osxkeychain
+    
+[rebase]
+    instructionFormat = %s [%an]
+    
+[alias]
+    # Alias to get the current branch name - usage mainly aimed at other aliases
+    branch-name = "!git rev-parse --abbrev-ref HEAD"
+    
+    # Delete all local branches that have been merged into master
+    clean-merged = "!git branch --merged master | grep -v \"^  master$\" | grep -v \"^*\" | xargs git branch -d"
+    
+    # Resets all changes in a local branch to match the remote
+    reset-deviated = "!git reset origin/$(git branch-name)  --hard"
+    
+    # Displays commits since master on one line
+    l1 = "!git log origin/master.. --oneline"
+    
+    # Counts number of commits since master
+    lc = "!git l1 | wc -l"
+    
+    # Displays staged diff
+    diffs = "!git diff --staged"
+    
+[commit]
+    # Add prompting to your commit message
+    template = ~/.git-commit-message-template
+    
+[color]
+    ui = true
+    
+[color "status"]
+    branch = bold
