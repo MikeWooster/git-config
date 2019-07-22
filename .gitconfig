@@ -35,6 +35,9 @@
     # Displays staged diff
     diffs = "!git diff --staged"
     
+    # View only untracked files
+    ls-untracked = "!git ls-files --others --exclude-standard"
+    
 [commit]
     # Add prompting to your commit message
     template = ~/.git-commit-message-template
