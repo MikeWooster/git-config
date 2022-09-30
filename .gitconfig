@@ -17,6 +17,10 @@
     # Alias to get the current branch name - usage mainly aimed at other aliases
     branch-name = "!git rev-parse --abbrev-ref HEAD"
     
+    # Quick shortcuts
+    s = "!git status"
+    master = "!git checkout master"
+
     # Delete all local branches that have been merged into master
     clean-merged = "!git branch --merged master | grep -v \"^  master$\" | grep -v \"^*\" | xargs git branch -d"
     
@@ -47,3 +51,13 @@
     
 [color "status"]
     branch = bold
+
+[init]
+	defaultBranch = master
+
+[pull]
+	rebase = false
+
+[branch]
+	sort = creatordate
+
